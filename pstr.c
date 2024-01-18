@@ -11,9 +11,6 @@ void pstr(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	(void) line_number;
 
-	if (arguments->head == NULL)
-		printf("\n");
-
 	tmp = arguments->head;
 
 	while (tmp != NULL)
