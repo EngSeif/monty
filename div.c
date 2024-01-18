@@ -17,14 +17,14 @@ void _div(stack_t **stack, unsigned int line_number)
 		freeAll();
 		exit(EXIT_FAILURE);
 	}
-	if (arguments->head->n == 0)
+	tmp1 = arguments->head;
+	tmp2 = tmp1->next;
+	if (tmp1->n == 0)
 	{
 		fprintf(stderr, "L%d:  division by zero\n", line_number);
 		freeAll();
 		exit(EXIT_FAILURE);
 	}
-	tmp1 = arguments->head;
-	tmp2 = tmp1->next;
 	tmp2->n = tmp2->n / tmp1->n;
 	deleteNode();
 	arguments->stack_len -= 1;
