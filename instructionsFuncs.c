@@ -14,6 +14,7 @@ void get_instructions(void)
 		{"nop", &nop}, {"sub", &sub},
 		{"div", &_div}, {"mul", &mul},
 		{"mod", &mod}, {"pchar", &pchar},
+		{"pstr", &pstr},
 		{NULL, NULL}
 	};
 
