@@ -20,5 +20,5 @@ void pop(stack_t **stack, unsigned int line_number)
 	tmp = arguments->head;
 	arguments->head = tmp->next;
 	free(tmp);
-	arguments->stack_len--;
+	arguments->stack_len-=1;
 }
