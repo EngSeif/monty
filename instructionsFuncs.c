@@ -10,7 +10,7 @@ void get_instructions(void)
 	instruction_t instructions[] = {
 		{"push", &push}, {"pall", &pall},
 		{"pint", &pint}, {"pop", &pop},
-		{"swap", &swap},
+		{"swap", &swap}, {"add", &add},
 		{NULL, NULL}
 	};
 

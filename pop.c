@@ -7,7 +7,6 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
 	(void) stack;
 
 	if (arguments->head == NULL)
@@ -17,8 +16,6 @@ void pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	tmp = arguments->head;
-	arguments->head = tmp->next;
-	free(tmp);
+	deleteNode();
 	arguments->stack_len-=1;
 }
