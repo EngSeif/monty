@@ -12,7 +12,7 @@ void get_instructions(void)
 		{"pint", &pint}, {"pop", &pop},
 		{"swap", &swap}, {"add", &add},
 		{"nop", &nop}, {"sub", &sub},
-		{"_div", &_div},
+		{"div", &_div},
 		{NULL, NULL}
 	};
 
