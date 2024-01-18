@@ -7,6 +7,8 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
+	stack_t *tmp;
+
 	if (arguments->Num_tok <= 1 || !(IsNumber(arguments->tokens[1])))
 	{
 		freeArgs();
@@ -14,18 +16,32 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-
 	*stack = malloc(sizeof(stack_t));
 	if (*stack == NULL)
 		malloc_failed();
 	(*stack)->next = (*stack)->prev = NULL;
 	(*stack)->n = (int) atoi(arguments->tokens[1]);
 
-	if (arguments->head != NULL)
+	if (arguments->head == NULL)
 	{
-		(*stack)->next = arguments->head;
-		arguments->head->prev = *stack;
+		arguments->head = *stack;
 	}
-	arguments->head = *stack;
+	else
+	{
+		if (arguments->head)
+		{
+			(*stack)->next = arguments->head;
+			arguments->head->prev = *stack;
+			arguments->head = *stack;
+		}
+		else
+		{
+			tmp = arguments->head;
+			while (tmp->next)
+				tmp = tmp->next;
+			tmp->next = *stack;
+			(*stack)->prev = tmp;
+		}
+	}
 	arguments->stack_len += 1;
 }
