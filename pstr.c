@@ -10,15 +10,15 @@ void pstr(stack_t **stack, unsigned int line_number)
 	stack_t *tmp;
 	(void) stack;
 	(void) line_number;
-	
+
 	if (arguments->head == NULL)
 		printf("\n");
 
 	tmp = arguments->head;
 
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
-		
+
 		if ((tmp->n >= 65 && tmp->n <= 90) || (tmp->n >= 97 && tmp->n <= 123))
 		{
 		printf("%c", tmp->n);
