@@ -21,7 +21,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	tmp2 = tmp1->next;
 	if (tmp1->n == 0)
 	{
-		fprintf(stderr, "L%d:  division by zero\n", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		freeAll();
 		exit(EXIT_FAILURE);
 	}
