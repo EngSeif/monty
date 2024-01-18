@@ -9,8 +9,8 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	if (arguments->Num_tok <= 1 || !(IsNumber(arguments->tokens[1])))
 	{
-		freeArgs();
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		freeAll();
 		exit(EXIT_FAILURE);
 	}
 
@@ -21,12 +21,28 @@ void push(stack_t **stack, unsigned int line_number)
 	(*stack)->next = (*stack)->prev = NULL;
 	(*stack)->n = (int) atoi(arguments->tokens[1]);
 
-	if (arguments->head != NULL)
+	if (arguments->head == NULL)
 	{
-		(*stack)->next = arguments->head;
-		arguments->head->prev = *stack;
+		arguments->head = *stack;
 	}
-	arguments->head = *stack;
+	else
+	{
+		if (arguments->stack)
+		{
+			(*stack)->next = arguments->head;
+			arguments->head->prev = *stack;
+			arguments->head = *stack;
+		}
+		else
+		{
+			stack_t *tmp = arguments->head;
+
+			while (tmp->next)
+				tmp = tmp->next;
+			tmp->next = *stack;
+			(*stack)->prev = tmp;
+		}
+	}
 	arguments->stack_len += 1;
 }
 
