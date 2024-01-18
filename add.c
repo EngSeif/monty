@@ -7,7 +7,8 @@
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *tmp1;
+	stack_t *tmp2;
 	(void) stack;
 
 	if (arguments->stack_len < 2)
@@ -17,8 +18,9 @@ void add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	tmp = arguments->head->next;
-	tmp->n = tmp->n + arguments->head->n;
+	tmp1 = arguments->head;
+	tmp2 = tmp1->next;
+	tmp2->n = tmp1->n + tmp2->n;
 	deleteNode();
 	arguments->stack_len -= 1;
 }
