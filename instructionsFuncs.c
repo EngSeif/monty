@@ -13,14 +13,21 @@ void get_instructions(void)
 		{"swap", &swap}, {"add", &add},
 		{"nop", &nop}, {"sub", &sub},
 		{"div", &_div}, {"mul", &mul},
-		{"mod", &mod},
+		{"mod", &mod}, {"pchar", &pchar},
 		{NULL, NULL}
 	};
 
 	if (arguments->Num_tok == 0)
 		return;
+	if (arguments->tokens[0][0] == '#')
+	{
+		arguments->instructs->opcode = "nop";
+		arguments->instructs->f = nop;
+		return;
+	}
 	for (i = 0; instructions[i].opcode != NULL; i++)
 	{
+
 		if (strcmp(instructions[i].opcode, arguments->tokens[0])
 				== 0)
 		{

@@ -6,8 +6,9 @@
  */
 void deleteNode(void)
 {
-    stack_t *tmp;
-    tmp = arguments->head;
+	stack_t *tmp;
+
+	tmp = arguments->head;
 	arguments->head = tmp->next;
 	free(tmp);
 }

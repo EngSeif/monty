@@ -21,7 +21,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	tmp1 = arguments->head;
 	tmp2 = tmp1->next;
 	tmp1->next = tmp2->next;
-	if(tmp1->next)
+	if (tmp1->next)
 		tmp1->next->prev = tmp2;
 	tmp2->next = tmp1;
 	tmp2->prev = NULL;
