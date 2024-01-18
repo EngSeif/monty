@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * div - divides first two elements of stack.
+ * _div - divides first two elements of stack.
  * @stack: Pointer to the stack.
  * @line_number: Line number where the pall function is called.
  */
