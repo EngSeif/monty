@@ -10,7 +10,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	stack_t *tmp;
 	int n;
 	(void) stack;
-
+	
 	if (arguments->head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
